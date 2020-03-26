@@ -11,6 +11,5 @@
         public string LastName { get; set; }
 
         public string PIN { get; set; }
-
     }
 }

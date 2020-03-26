@@ -25,6 +25,7 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
         public DbSet<Member> Members { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

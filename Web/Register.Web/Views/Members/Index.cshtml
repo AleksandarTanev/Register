@@ -1,0 +1,12 @@
+﻿@model List<Register.Web.ViewModels.Members.MemberViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@foreach (var member in this.Model)
+{
+    <div>@member.Id: @member.FirstName</div>
+}
