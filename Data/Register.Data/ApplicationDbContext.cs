@@ -28,6 +28,8 @@
 
         public DbSet<Member> Members { get; set; }
 
+        public DbSet<RegionalAssociation> RegionalAssociations { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
