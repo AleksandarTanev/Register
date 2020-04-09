@@ -20,6 +20,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Register.Services.Data.Interfaces;
 
     public class Startup
     {
@@ -60,6 +61,7 @@
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IMembersService, MembersService>();
+            services.AddTransient<IRegionalAssociationsService, RegionalAssociationsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

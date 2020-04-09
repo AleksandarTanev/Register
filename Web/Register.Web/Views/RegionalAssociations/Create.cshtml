@@ -1,0 +1,90 @@
+﻿@model Register.Web.ViewModels.RegionalAssociations.RegionalAssociationInputModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RegionalAssociation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AssociationName" class="control-label"></label>
+                <input asp-for="AssociationName" class="form-control" />
+                <span asp-validation-for="AssociationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bulstat" class="control-label"></label>
+                <input asp-for="Bulstat" class="form-control" />
+                <span asp-validation-for="Bulstat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkAddress" class="control-label"></label>
+                <input asp-for="WorkAddress" class="form-control" />
+                <span asp-validation-for="WorkAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactAddress" class="control-label"></label>
+                <input asp-for="ContactAddress" class="form-control" />
+                <span asp-validation-for="ContactAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionCode" class="control-label"></label>
+                <input asp-for="RegionCode" class="form-control" />
+                <span asp-validation-for="RegionCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobilePhone" class="control-label"></label>
+                <input asp-for="MobilePhone" class="form-control" />
+                <span asp-validation-for="MobilePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankName" class="control-label"></label>
+                <input asp-for="BankName" class="form-control" />
+                <span asp-validation-for="BankName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchName" class="control-label"></label>
+                <input asp-for="BranchName" class="form-control" />
+                <span asp-validation-for="BranchName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankAddress" class="control-label"></label>
+                <input asp-for="BankAddress" class="form-control" />
+                <span asp-validation-for="BankAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BIC" class="control-label"></label>
+                <input asp-for="BIC" class="form-control" />
+                <span asp-validation-for="BIC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IBAN" class="control-label"></label>
+                <input asp-for="IBAN" class="form-control" />
+                <span asp-validation-for="IBAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
