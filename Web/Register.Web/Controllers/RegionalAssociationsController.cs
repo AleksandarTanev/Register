@@ -1,7 +1,6 @@
 ﻿namespace Register.Web.Controllers
 {
     using System.Threading.Tasks;
-    using Microsoft.EntityFrameworkCore;
     using Register.Services.Data.Interfaces;
     using Register.Web.ViewModels.RegionalAssociations;
     using Microsoft.AspNetCore.Mvc;
@@ -94,21 +93,7 @@
 
             if (this.ModelState.IsValid)
             {
-                try
-                {
-                    await this.service.Edit(regionalAssociationInputModel);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!this.service.Any(regionalAssociationInputModel.Id))
-                    {
-                        return this.NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await this.service.Edit(regionalAssociationInputModel);
 
                 return this.RedirectToAction(nameof(this.Index));
             }
@@ -117,7 +102,7 @@
         }
 
         // GET: RegionalAssociations/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
