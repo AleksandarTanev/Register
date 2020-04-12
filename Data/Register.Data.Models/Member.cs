@@ -12,6 +12,8 @@
 
         public string PIN { get; set; }
 
+        public int RegionalAssociationId { get; set; }
+
         public virtual RegionalAssociation RegionalAssociation { get; set; }
     }
 }

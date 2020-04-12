@@ -30,6 +30,12 @@
 
         public DbSet<RegionalAssociation> RegionalAssociations { get; set; }
 
+        public DbSet<Region> Regions { get; set; }
+
+        public DbSet<Municipality> Municipalities { get; set; }
+
+        public DbSet<PlaceOfResidence> PlacesOfResidence { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
