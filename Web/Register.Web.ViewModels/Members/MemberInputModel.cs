@@ -13,6 +13,8 @@
 
         public string PIN { get; set; }
 
+        public int RegionalAssociationId { get; set; }
+
         public int PlaceOfResidenceId { get; set; }
     }
 }

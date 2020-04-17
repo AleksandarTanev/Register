@@ -8,16 +8,19 @@
     using Register.Services.Data.Interfaces;
     using Register.Web.ViewModels.Members;
     using Register.Web.ViewModels.PlacesOfResidence;
+    using Register.Web.ViewModels.RegionalAssociations;
 
     public class MembersController : Controller
     {
         private readonly IMembersService service;
         private readonly IPlacesOfResidenceService placesOfResidenceService;
+        private readonly IRegionalAssociationsService regionalAssociationsService;
 
-        public MembersController(IMembersService service, IPlacesOfResidenceService placesOfResidenceService)
+        public MembersController(IMembersService service, IPlacesOfResidenceService placesOfResidenceService, IRegionalAssociationsService regionalAssociationsService)
         {
             this.service = service;
             this.placesOfResidenceService = placesOfResidenceService;
+            this.regionalAssociationsService = regionalAssociationsService;
         }
 
         // GET: Members
@@ -47,7 +50,11 @@
         // GET: Members/Create
         public IActionResult Create()
         {
-            return this.View(new CreateViewModel(new MemberInputModel(), this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>()));
+            return this.View(
+                new CreateViewModel(
+                    new MemberInputModel(), 
+                    this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>(), 
+                    this.regionalAssociationsService.GetAll<RegionalAssociationSimpleViewModel>()));
         }
 
         // POST: Members/Create
@@ -64,7 +71,11 @@
                 return this.RedirectToAction(nameof(this.Index));
             }
 
-            return this.View(new CreateViewModel(member, this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>()));
+            return this.View(
+                new CreateViewModel(
+                    member,
+                    this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>(),
+                    this.regionalAssociationsService.GetAll<RegionalAssociationSimpleViewModel>()));
         }
 
         // GET: Members/Edit/5

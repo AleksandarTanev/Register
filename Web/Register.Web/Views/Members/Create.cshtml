@@ -33,9 +33,15 @@
                 <span asp-validation-for="memberInputModel.PIN" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <select asp-for="memberInputModel.RegionalAssociationId"
+                        class="form-control"
+                        asp-items="@(new SelectList(Model.regionalAssociationSimpleViewModels,"Id", "AssociationName"))">
+                </select>
+            </div>
+            <div class="form-group">
                 <select asp-for="memberInputModel.PlaceOfResidenceId"
-                    class="form-control"
-                    asp-items="@(new SelectList(Model.placesOfResidenceSimpleViewModel,"Id", "PlaceOfResidenceName"))">
+                        class="form-control"
+                        asp-items="@(new SelectList(Model.placeOfResidenceSimpleViewModels,"Id", "PlaceOfResidenceName"))">
                 </select>
             </div>
             <div class="form-group">
