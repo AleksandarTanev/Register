@@ -1,17 +1,23 @@
 ﻿namespace Register.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+
     using Register.Services.Data;
+    using Register.Services.Data.Interfaces;
     using Register.Web.ViewModels.Members;
+    using Register.Web.ViewModels.PlacesOfResidence;
 
     public class MembersController : Controller
     {
         private readonly IMembersService service;
+        private readonly IPlacesOfResidenceService placesOfResidenceService;
 
-        public MembersController(IMembersService service)
+        public MembersController(IMembersService service, IPlacesOfResidenceService placesOfResidenceService)
         {
             this.service = service;
+            this.placesOfResidenceService = placesOfResidenceService;
         }
 
         // GET: Members
@@ -41,7 +47,7 @@
         // GET: Members/Create
         public IActionResult Create()
         {
-            return this.View(new MemberInputModel());
+            return this.View(new CreateViewModel(new MemberInputModel(), this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>()));
         }
 
         // POST: Members/Create
@@ -58,7 +64,7 @@
                 return this.RedirectToAction(nameof(this.Index));
             }
 
-            return this.View(member);
+            return this.View(new CreateViewModel(member, this.placesOfResidenceService.GetAll<PlaceOfResidenceSimpleViewModel>()));
         }
 
         // GET: Members/Edit/5

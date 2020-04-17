@@ -12,5 +12,7 @@
         public string LastName { get; set; }
 
         public string PIN { get; set; }
+
+        public int PlaceOfResidenceId { get; set; }
     }
 }
